@@ -11,6 +11,12 @@ sites:
     url: https://ci.enable-technologies.io
   - name: cics
     url: https://cics.enable-technologies.io
+  - name: trial01
+    url: https://enable-trial01.enable-technologies.app/admin/login
+  - name: dev01
+    url: https://enable-dev01.enable-technologies.app/admin/login
+  - name: qa01
+    url: https://enable-qa01.enable-technologies.app/admin/login
 status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
   # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
