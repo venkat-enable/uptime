@@ -1,7 +1,6 @@
 # [📈 Live Status](https://venkat-enable.github.io/upptime): <!--live status--> **🟧 Partial outage**
 
-This repository contains the Enable uptime monitor and status page for [Venkata reddy](https://venkat-enable.github.io/uptime), powered by [Upptime](https://github.com/upptime/upptime).
-
+This repository contains the Enable uptime monitor and status page for [Venkata reddy](https://venkat-enable.github.io/uptime),
 [![Uptime CI](https://github.com/venkat-enable/uptime/workflows/Uptime%20CI/badge.svg)](https://github.com/venkat-enable/uptime/actions?query=workflow%3A%22Uptime+CI%22)
 [![Response Time CI](https://github.com/venkat-enable/uptime/workflows/Response%20Time%20CI/badge.svg)](https://github.com/venkat-enable/uptime/actions?query=workflow%3A%22Response+Time+CI%22)
 [![Graphs CI](https://github.com/venkat-enable/uptime/workflows/Graphs%20CI/badge.svg)](https://github.com/venkat-enable/uptime/actions?query=workflow%3A%22Graphs+CI%22)
