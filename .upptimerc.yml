@@ -12,11 +12,11 @@ sites:
   - name: cics
     url: https://cics.enable-technologies.io
   - name: trial01
-    url: https://enable-trial01.enable-technologies.app/admin/login
+    url: https://enable-trial01.enable-technologies.app/api/subscription-manager/diagnostics/ping
   - name: dev01
-    url: https://enable-dev01.enable-technologies.app/admin/login
+    url: https://enable-dev01.enable-technologies.app/admin/api/subscription-manager/diagnostics/ping
   - name: qa01
-    url: https://enable-qa01.enable-technologies.app/admin/login
+    url: https://enable-qa01.enable-technologies.app/admin/api/subscription-manager/diagnostics/ping
 status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
   # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
