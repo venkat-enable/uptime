@@ -5,11 +5,11 @@ repo: uptime # The name of this repository
 sites:
   - name: Google
     url: https://www.google.com
-  - name: cd
+  - name: Prod - Service 1
     url: https://cd.enable-technologies.io
-  - name: ci
+  - name: Prod - Service 2
     url: https://ci.enable-technologies.io
-  - name: cics
+  - name: Prerod - Service 1
     url: https://cics.enable-technologies.io
   - name: trial01
     url: https://enable-trial01.enable-technologies.app/api/subscription/diagnostics/ping
