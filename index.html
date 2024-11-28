@@ -1,69 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width,initial-scale=1" name="viewport">
-    <meta content="#333333" name="theme-color">
-    <base href="/uptime/">
-    <link href="manifest.json" rel="manifest" crossorigin="use-credentials">
-    <script>__SAPPER__={baseUrl:"/uptime",preloaded:[void 0,{}]};if('serviceWorker' in navigator)navigator.serviceWorker.register('/uptime/service-worker.js');(function(){try{eval("async function x(){}");var main="/uptime/client/client.906b63c7.js"}catch(e){main="/uptime/client/legacy/client.e53efb19.js"};var s=document.createElement("script");try{new Function("if(0)import('')")();s.src=main;s.type="module";s.crossOrigin="use-credentials";}catch(e){s.src="/uptime/client/shimport@2.0.5.js";s.setAttribute("data-main",main);}document.head.appendChild(s);}());</script>
-    <link href="client/client-31a52aa5.css" rel="stylesheet">
-    <link href="client/createOctokit-a85f76c7.css" rel="stylesheet">
-    <link href="client/index-b0b6455a.css" rel="stylesheet">
-    <title>Monitoring Status</title>
-    <link href="https://venkat-enable.github.io/uptime/themes/dark.css" rel="stylesheet">
-    <link href="https://venkat-enable.github.io/uptime/global.css" rel="stylesheet">
-    <link href="https://raw.githubusercontent.com/upptime/upptime/master/assets/upptime-icon.svg" rel="icon" type="image/svg">
-    <link href="/logo-192.png" rel="icon" type="image/png">
-  </head>
-  <body>
-    <div id="sapper">
-      <nav class="svelte-a08hsz">
-        <div class="svelte-a08hsz container">
-          <ul class="svelte-a08hsz">
-            <li><a href="/" class="svelte-a08hsz" target="_self" aria-current="page">Status</a></li>
-            <li><a href="https://github.com/venkat-enable/uptime" class="svelte-a08hsz" target="_self">GitHub</a></li>
-          </ul>
-        </div>
-      </nav>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="#333333" name="theme-color">
+  <base href="/uptime/">
+  <link href="manifest.json" rel="manifest" crossorigin="use-credentials">
+  <script>
+    __SAPPER__ = { baseUrl: "/uptime", preloaded: [void 0, {}] };
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/uptime/service-worker.js');
+    (function () {
+      try {
+        eval("async function x(){}");
+        var main = "/uptime/client/client.906b63c7.js"
+      } catch (e) {
+        main = "/uptime/client/legacy/client.e53efb19.js"
+      };
+      var s = document.createElement("script");
+      try {
+        new Function("if(0)import('')")();
+        s.src = main;
+        s.type = "module";
+        s.crossOrigin = "use-credentials";
+      } catch (e) {
+        s.src = "/uptime/client/shimport@2.0.5.js";
+        s.setAttribute("data-main", main);
+      }
+      document.head.appendChild(s);
+    }());
+  </script>
+  <link href="client/client-31a52aa5.css" rel="stylesheet">
+  <title>Status</title>
+</head>
+<body>
+  <div id="sapper">
+    <nav>
+      <ul>
+        <li><a href="/" aria-current="page">Status</a></li>
+        <li><a href="https://github.com/venkat-enable/uptime">GitHub</a></li>
+      </ul>
+    </nav>
+    <main>
+      <header>
+        <h1><strong>Enable</strong> monitoring</h1>
+      </header>
+      <div id="status-section"></div>
+    </main>
+    <footer>
+      <p>This page is <a href="https://github.com/venkat-enable/uptime">open source</a>, powered by <a href="https://upptime.js.org">Upptime</a></p>
+    </footer>
+  </div>
 
-      <main class="container">
-        <header class="svelte-ngkazm">
-          <h1><strong>Enable</strong> monitoring</h1>
-        </header>
-
-        <!-- New Environments Section -->
-        <section>
-          <h2>Environments</h2>
-          <ul>
-            <li><a href="#prod">Prod Environment</a></li>
-            <li><a href="#preprod">Preprod Environment</a></li>
-          </ul>
-        </section>
-
-        <!-- Prod Environment Status Section -->
-        <section id="prod">
-          <h3>Prod Environment Status</h3>
-          <ul>
-            <li><a href="https://prod.example.com/service1">Service 1</a> - Status: ![Uptime Badge](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/username/repo/master/history/prod-service-1.json)</li>
-            <li><a href="https://prod.example.com/service2">Service 2</a> - Status: ![Uptime Badge](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/username/repo/master/history/prod-service-2.json)</li>
-          </ul>
-        </section>
-
-        <!-- Preprod Environment Status Section -->
-        <section id="preprod">
-          <h3>Preprod Environment Status</h3>
-          <ul>
-            <li><a href="https://preprod.example.com/service1">Service 1</a> - Status: ![Uptime Badge](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/username/repo/master/history/preprod-service-1.json)</li>
-            <li><a href="https://preprod.example.com/service2">Service 2</a> - Status: ![Uptime Badge](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/username/repo/master/history/preprod-service-2.json)</li>
-          </ul>
-        </section>
-
-      </main>
-
-      <footer class="svelte-jbr799">
-        <p>This page is <a href="https://github.com/venkat-enable/uptime">open source</a>, powered by <a href="https://upptime.js.org">Upptime</a></p>
-      </footer>
-    </div>
-  </body>
+  <!-- Custom Script for Environments Section -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const environmentsSection = document.createElement('section');
+      environmentsSection.innerHTML = `
+        <h2>Environments</h2>
+        <ul>
+          <li><a href="/#prod">Prod Environment</a></li>
+          <li><a href="/#preprod">Preprod Environment</a></li>
+        </ul>
+      `;
+      document.body.prepend(environmentsSection);
+    });
+  </script>
+</body>
 </html>
