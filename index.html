@@ -1,120 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Status Page</title>
-  <link href="styles.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <meta content="#333333" name="theme-color">
+    <base href="/uptime/">
+    <link href="manifest.json" rel="manifest" crossorigin="use-credentials">
+    <script>
+      __SAPPER__ = { baseUrl: "/uptime", preloaded: [void 0, {}] };
+      if ('serviceWorker' in navigator) navigator.serviceWorker.register('/uptime/service-worker.js');
+      (function () {
+        try {
+          eval("async function x(){}");
+          var main = "/uptime/client/client.906b63c7.js";
+        } catch (e) {
+          main = "/uptime/client/legacy/client.e53efb19.js";
+        }
+        var s = document.createElement("script");
+        try {
+          new Function("if(0)import('')")();
+          s.src = main;
+          s.type = "module";
+          s.crossOrigin = "use-credentials";
+        } catch (e) {
+          s.src = "/uptime/client/shimport@2.0.5.js";
+          s.setAttribute("data-main", main);
+        }
+        document.head.appendChild(s);
+      })();
+    </script>
+    <link href="client/client-31a52aa5.css" rel="stylesheet">
+    <link href="client/createOctokit-a85f76c7.css" rel="stylesheet">
+    <link href="client/index-b0b6455a.css" rel="stylesheet">
+    <title>Status Page</title>
+    <link href="https://venkat-enable.github.io/uptime/themes/dark.css" rel="stylesheet">
+    <link href="https://venkat-enable.github.io/uptime/global.css" rel="stylesheet">
+    <link href="https://raw.githubusercontent.com/upptime/upptime/master/assets/upptime-icon.svg" rel="icon" type="image/svg">
+    <link href="/logo-192.png" rel="icon" type="image/png">
 </head>
 <body>
-  <header>
-    <h1>Environment Status</h1>
-  </header>
-  <nav>
-    <ul>
-      <li><a href="#" id="link-prod">Prod</a></li>
-      <li><a href="#" id="link-preprod">Preprod</a></li>
-    </ul>
-  </nav>
+    <div id="sapper">
+        <nav class="svelte-a08hsz">
+            <div class="svelte-a08hsz container">
+                <ul class="svelte-a08hsz">
+                    <li><a href="/" class="svelte-a08hsz" target="_self" aria-current="page">Status</a></li>
+                    <li><a href="https://github.com/venkat-enable/uptime" class="svelte-a08hsz" target="_self">GitHub</a></li>
+                </ul>
+            </div>
+        </nav>
+        <main class="container">
+            <header class="svelte-ngkazm">
+                <h1><strong>Enable Monitoring</strong></h1>
+            </header>
+            <section class="svelte-8lnl4f">
+                <div class="svelte-68jxue loading">
+                    <svg class="svelte-68jxue" height="38" stroke="#aaa" width="38" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none" fill-rule="evenodd">
+                            <g stroke-width="2" transform="translate(1 1)">
+                                <circle cx="18" cy="18" r="18" stroke-opacity=".5"></circle>
+                                <path d="M36 18c0-9.94-8.06-18-18-18">
+                                    <animateTransform attributeName="transform" dur="1s" from="0 18 18" repeatCount="indefinite" to="360 18 18" type="rotate"></animateTransform>
+                                </path>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </section>
 
-  <!-- Main container -->
-  <main id="main-content">
-    <p>Select an environment to view details.</p>
-  </main>
+            <section class="svelte-fqsq6s f changed">
+                <h2>Live Status</h2>
+                <form class="svelte-fqsq6s f r">
+                    <div><input class="svelte-fqsq6s" id="data_day" name="d" type="radio" value="day"><label class="svelte-fqsq6s" for="data_day">24h</label></div>
+                    <div><input class="svelte-fqsq6s" id="data_week" name="d" type="radio" value="week" checked><label class="svelte-fqsq6s" for="data_week">7d</label></div>
+                    <div><input class="svelte-fqsq6s" id="data_month" name="d" type="radio" value="month"><label class="svelte-fqsq6s" for="data_month">30d</label></div>
+                    <div><input class="svelte-fqsq6s" id="data_year" name="d" type="radio" value="year"><label class="svelte-fqsq6s" for="data_year">1y</label></div>
+                    <div><input class="svelte-fqsq6s" id="data_all" name="d" type="radio" value="all"><label class="svelte-fqsq6s" for="data_all">all</label></div>
+                </form>
+            </section>
+            
+            <div>
+                <h2>Environments</h2>
+                <ul>
+                    <li><a href="./prod.html">Prod Environment</a></li>
+                    <li><a href="./preprod.html">Preprod Environment</a></li>
+                </ul>
+            </div>
+        </main>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Example data for services, maintenance windows, and incidents
-      const environmentData = {
-        prod: {
-          services: [
-            { name: "sub Service", url: "https://enable-trial01.enable-technologies.app/api/subscription/diagnostics/ping", status: "Fetching..." },
-            { name: "party", url: "https://enable-trial01.enable-technologies.app/api/party/diagnostics/ping", status: "Fetching..." },
-            { name: "content", url: "https://enable-trial01.enable-technologies.app/api/content/diagnostics/ping", status: "Fetching..." }
-          ],
-          maintenance: [
-            { window: "2024-11-30 01:00 AM - 03:00 AM UTC", description: "Database upgrade." }
-          ],
-          incidents: [
-            { id: 1, date: "2024-11-27", description: "Intermittent login failures." }
-          ]
-        },
-        preprod: {
-          services: [
-            { name: "sub Service", url: "https://enable-trial01.enable-technologies.app/api/subscription/diagnostics/ping", status: "Fetching..." },
-            { name: "party", url: "https://enable-trial01.enable-technologies.app/api/party/diagnostics/ping", status: "Fetching..." },
-            { name: "content", url: "https://enable-trial01.enable-technologies.app/api/content/diagnostics/ping", status: "Fetching..." }
-          ],
-          maintenance: [
-            { window: "2024-12-01 02:00 AM - 04:00 AM UTC", description: "API server patching." }
-          ],
-          incidents: [
-            { id: 2, date: "2024-11-26", description: "Payment gateway timeout." }
-          ]
-        }
-      };
-
-      // Fetch live status from URLs
-      async function fetchServiceStatus(url) {
-        try {
-          const response = await fetch(url, { method: 'GET' });
-          return response.ok ? "Operational" : "Degraded";
-        } catch (error) {
-          return "Outage";
-        }
-      }
-
-      // Render environment details
-      async function renderEnvironment(env) {
-        const data = environmentData[env];
-        const mainContent = document.getElementById('main-content');
-        mainContent.innerHTML = `<h2>${env.toUpperCase()} Environment</h2>`;
-
-        // Services
-        const servicesSection = document.createElement('section');
-        servicesSection.innerHTML = `<h3>Services</h3>`;
-        const servicesList = document.createElement('ul');
-        for (const service of data.services) {
-          const li = document.createElement('li');
-          li.innerHTML = `<strong>${service.name}:</strong> ${service.status}`;
-          servicesList.appendChild(li);
-
-          // Update status dynamically
-          const status = await fetchServiceStatus(service.url);
-          li.innerHTML = `<strong>${service.name}:</strong> ${status}`;
-        }
-        servicesSection.appendChild(servicesList);
-        mainContent.appendChild(servicesSection);
-
-        // Maintenance Windows
-        const maintenanceSection = document.createElement('section');
-        maintenanceSection.innerHTML = `<h3>Maintenance Windows</h3>`;
-        const maintenanceList = document.createElement('ul');
-        data.maintenance.forEach((maint) => {
-          const li = document.createElement('li');
-          li.textContent = `${maint.window}: ${maint.description}`;
-          maintenanceList.appendChild(li);
-        });
-        maintenanceSection.appendChild(maintenanceList);
-        mainContent.appendChild(maintenanceSection);
-
-        // Active Incidents
-        const incidentsSection = document.createElement('section');
-        incidentsSection.innerHTML = `<h3>Active Incidents</h3>`;
-        const incidentsList = document.createElement('ul');
-        data.incidents.forEach((incident) => {
-          const li = document.createElement('li');
-          li.textContent = `${incident.date}: ${incident.description}`;
-          incidentsList.appendChild(li);
-        });
-        incidentsSection.appendChild(incidentsList);
-        mainContent.appendChild(incidentsSection);
-      }
-
-      // Event Listeners for navigation
-      document.getElementById('link-prod').addEventListener('click', () => renderEnvironment('prod'));
-      document.getElementById('link-preprod').addEventListener('click', () => renderEnvironment('preprod'));
-    });
-  </script>
+        <footer class="svelte-jbr799">
+            <p>This page is <a href="https://github.com/venkat-enable/uptime" target="_blank">open source</a>, powered by <a href="https://upptime.js.org" target="_blank">Upptime</a></p>
+        </footer>
+    </div>
 </body>
 </html>
