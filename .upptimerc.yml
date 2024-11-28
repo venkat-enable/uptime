@@ -5,18 +5,24 @@ repo: uptime # The name of this repository
 sites:
   - name: Google
     url: https://www.google.com
-  - name: Prod - Service 1
+  - name: Service 1
     url: https://cd.enable-technologies.io
-  - name: Prod - Service 2
+    group: prod
+  - name: Service 2
     url: https://ci.enable-technologies.io
-  - name: Prerod - Service 1
+    group: prod
+  - name: Service 1
     url: https://cics.enable-technologies.io
+    group: prod
   - name: trial01
     url: https://enable-trial01.enable-technologies.app/api/subscription/diagnostics/ping
+    group: prod
   - name: dev01
     url: https://enable-dev01.enable-technologies.app/admin/api/subscription-manager/diagnostics/ping
+    group: prod
   - name: qa01
     url: https://enable-qa01.enable-technologies.app/admin/api/subscription-manager/diagnostics/ping
+    group: prod
 status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
   # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
