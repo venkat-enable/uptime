@@ -1,68 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width,initial-scale=1" name="viewport">
-  <meta content="#333333" name="theme-color">
-  <base href="/uptime/">
-  <link href="manifest.json" rel="manifest" crossorigin="use-credentials">
-  <script>
-    __SAPPER__ = { baseUrl: "/uptime", preloaded: [void 0, {}] };
-    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/uptime/service-worker.js');
-    (function () {
-      try {
-        eval("async function x(){}");
-        var main = "/uptime/client/client.906b63c7.js"
-      } catch (e) {
-        main = "/uptime/client/legacy/client.e53efb19.js"
-      };
-      var s = document.createElement("script");
-      try {
-        new Function("if(0)import('')")();
-        s.src = main;
-        s.type = "module";
-        s.crossOrigin = "use-credentials";
-      } catch (e) {
-        s.src = "/uptime/client/shimport@2.0.5.js";
-        s.setAttribute("data-main", main);
-      }
-      document.head.appendChild(s);
-    }());
-  </script>
-  <link href="client/client-31a52aa5.css" rel="stylesheet">
-  <title>Status</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Status Page</title>
+  <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-  <div id="sapper">
-    <nav>
-      <ul>
-        <li><a href="/" aria-current="page">Status</a></li>
-        <li><a href="https://github.com/venkat-enable/uptime">GitHub</a></li>
-      </ul>
-    </nav>
-    <main>
-      <header>
-        <h1><strong>Enable</strong> monitoring</h1>
-      </header>
-      <div id="status-section"></div>
-    </main>
-    <footer>
-      <p>This page is <a href="https://github.com/venkat-enable/uptime">open source</a>, powered by <a href="https://upptime.js.org">Upptime</a></p>
-    </footer>
-  </div>
+  <header>
+    <h1>Environment Status</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#prod">Prod</a></li>
+      <li><a href="#preprod">Preprod</a></li>
+    </ul>
+  </nav>
 
-  <!-- Custom Script for Environments Section -->
+  <!-- Prod Section -->
+  <section id="prod">
+    <h2>Prod Services</h2>
+    <ul class="service-list">
+      <!-- Services will be dynamically added here -->
+    </ul>
+  </section>
+
+  <!-- Preprod Section -->
+  <section id="preprod">
+    <h2>Preprod Services</h2>
+    <ul class="service-list">
+      <!-- Services will be dynamically added here -->
+    </ul>
+  </section>
+
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const environmentsSection = document.createElement('section');
-      environmentsSection.innerHTML = `
-        <h2>Environments</h2>
-        <ul>
-          <li><a href="/#prod">Prod Environment</a></li>
-          <li><a href="/#preprod">Preprod Environment</a></li>
-        </ul>
-      `;
-      document.body.prepend(environmentsSection);
+    document.addEventListener('DOMContentLoaded', async function () {
+      // Example service data with URLs
+      const serviceData = {
+        prod: [
+          { name: "sub Service", url: "https://enable-trial01.enable-technologies.app/api/subscription/diagnostics/ping", status: "Fetching..." },
+          { name: "Party", url: "https://enable-trial01.enable-technologies.app/api/party/diagnostics/ping", status: "Fetching..." },
+          { name: "origination", url: "https://enable-trial01.enable-technologies.app/api/origination/diagnostics/ping", status: "Fetching..." }
+        ],
+        preprod: [
+          { name: "sub Service", url: "https://enable-dev01.enable-technologies.app/api/subscription/diagnostics/ping", status: "Fetching..." },
+          { name: "Party", url: "https://enable-dev01.enable-technologies.app/api/party/diagnostics/ping", status: "Fetching..." },
+          { name: "origination", url: "https://enable-dev01.enable-technologies.app/api/origination/diagnostics/ping", status: "Fetching..." }
+        ]
+      };
+
+      // Fetch live status from URLs
+      async function fetchServiceStatus(url) {
+        try {
+          const response = await fetch(url, { method: 'GET' });
+          if (response.ok) {
+            return "Operational"; // Update based on API response if necessary
+          } else {
+            return "Degraded";
+          }
+        } catch (error) {
+          return "Outage";
+        }
+      }
+
+      // Populate services dynamically
+      async function populateServices(env, data) {
+        const section = document.querySelector(`#${env} .service-list`);
+        for (const service of data) {
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>${service.name}:</strong> ${service.status}`;
+          section.appendChild(li);
+
+          // Update status dynamically
+          const status = await fetchServiceStatus(service.url);
+          li.innerHTML = `<strong>${service.name}:</strong> ${status}`;
+        }
+      }
+
+      // Populate Prod Services
+      await populateServices("prod", serviceData.prod);
+
+      // Populate Preprod Services
+      await populateServices("preprod", serviceData.preprod);
     });
   </script>
 </body>
