@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <meta content="#333333" name="theme-color">
+    <base href="/uptime/">
+    <script>
+        // Ensure that the correct environment data is fetched (here, 'prod' environment)
+        var environment = 'prod';  // You can change to 'preprod' in preprod.html
+    </script>
+    <link href="client/client-31a52aa5.css" rel="stylesheet">
+    <link href="client/createOctokit-a85f76c7.css" rel="stylesheet">
+    <link href="client/index-b0b6455a.css" rel="stylesheet">
+    <title>Prod Environment - Status</title>
+</head>
+<body>
+    <div id="sapper">
+        <nav>
+            <div>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="https://github.com/venkat-enable/uptime">GitHub</a></li>
+                </ul>
+            </div>
+        </nav>
+        <main>
+            <header>
+                <h1>Prod Environment Status</h1>
+            </header>
+            <section id="status" class="status-section">
+                <div class="loading">
+                    <svg height="38" width="38" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="18" cy="18" r="18" stroke-opacity=".5"></circle>
+                        <path d="M36 18c0-9.94-8.06-18-18-18">
+                            <animateTransform attributeName="transform" dur="1s" from="0 18 18" repeatCount="indefinite" to="360 18 18" type="rotate"></animateTransform>
+                        </path>
+                    </svg>
+                </div>
+            </section>
+            <section id="environment-status">
+                <h2>Services Status</h2>
+                <!-- The service status will dynamically load here for the prod environment -->
+                <div id="service-list"></div>
+            </section>
+            <footer>
+                <p>This page is powered by <a href="https://upptime.js.org">Upptime</a></p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // Fetch the services status dynamically for prod
+        fetch('/api/status?env=' + environment)  // Make sure the API endpoint matches your environment data
+            .then(response => response.json())
+            .then(data => {
+                const servicesContainer = document.getElementById('service-list');
+                data.services.forEach(service => {
+                    const serviceElement = document.createElement('div');
+                    serviceElement.innerHTML = `
+                        <h3>${service.name}</h3>
+                        <p>Status: ${service.status}</p>
+                        <p>Maintenance: ${service.maintenance ? "Yes" : "No"}</p>
+                        <p>Incident: ${service.incident ? service.incident : "None"}</p>
+                    `;
+                    servicesContainer.appendChild(serviceElement);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching service status:', error);
+            });
+    </script>
+</body>
+</html>
