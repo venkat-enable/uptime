@@ -23,18 +23,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/cd.enable-technologies.io.ico",
     "slug": "service-1",
     "status": "down",
-    "uptime": "13.80%",
-    "uptimeDay": "13.80%",
-    "uptimeWeek": "13.80%",
-    "uptimeMonth": "13.80%",
-    "uptimeYear": "13.80%",
-    "time": 203,
-    "timeDay": 203,
-    "timeWeek": 203,
-    "timeMonth": 203,
-    "timeYear": 203,
+    "uptime": "16.57%",
+    "uptimeDay": "16.57%",
+    "uptimeWeek": "16.57%",
+    "uptimeMonth": "16.57%",
+    "uptimeYear": "16.57%",
+    "time": 201,
+    "timeDay": 201,
+    "timeWeek": 201,
+    "timeMonth": 201,
+    "timeYear": 201,
     "dailyMinutesDown": {
-      "2024-11-28": 138
+      "2024-11-28": 151
     }
   },
   {
@@ -43,18 +43,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/ci.enable-technologies.io.ico",
     "slug": "service-2",
     "status": "down",
-    "uptime": "0.01%",
-    "uptimeDay": "0.01%",
-    "uptimeWeek": "0.01%",
-    "uptimeMonth": "0.01%",
-    "uptimeYear": "0.01%",
+    "uptime": "0.00%",
+    "uptimeDay": "0.00%",
+    "uptimeWeek": "0.00%",
+    "uptimeMonth": "0.00%",
+    "uptimeYear": "0.00%",
     "time": 308,
     "timeDay": 308,
     "timeWeek": 308,
     "timeMonth": 308,
     "timeYear": 308,
     "dailyMinutesDown": {
-      "2024-11-28": 159
+      "2024-11-28": 180
     }
   },
   {
@@ -63,18 +63,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/cics.enable-technologies.io.ico",
     "slug": "service-1",
     "status": "down",
-    "uptime": "13.79%",
-    "uptimeDay": "13.79%",
-    "uptimeWeek": "13.79%",
-    "uptimeMonth": "13.79%",
-    "uptimeYear": "13.79%",
-    "time": 203,
-    "timeDay": 203,
-    "timeWeek": 203,
-    "timeMonth": 203,
-    "timeYear": 203,
+    "uptime": "16.57%",
+    "uptimeDay": "16.57%",
+    "uptimeWeek": "16.57%",
+    "uptimeMonth": "16.57%",
+    "uptimeYear": "16.57%",
+    "time": 201,
+    "timeDay": 201,
+    "timeWeek": 201,
+    "timeMonth": 201,
+    "timeYear": 201,
     "dailyMinutesDown": {
-      "2024-11-28": 138
+      "2024-11-28": 151
     }
   },
   {
