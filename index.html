@@ -12,76 +12,108 @@
   </header>
   <nav>
     <ul>
-      <li><a href="#prod">Prod</a></li>
-      <li><a href="#preprod">Preprod</a></li>
+      <li><a href="#" id="link-prod">Prod</a></li>
+      <li><a href="#" id="link-preprod">Preprod</a></li>
     </ul>
   </nav>
 
-  <!-- Prod Section -->
-  <section id="prod">
-    <h2>Prod Services</h2>
-    <ul class="service-list">
-      <!-- Services will be dynamically added here -->
-    </ul>
-  </section>
-
-  <!-- Preprod Section -->
-  <section id="preprod">
-    <h2>Preprod Services</h2>
-    <ul class="service-list">
-      <!-- Services will be dynamically added here -->
-    </ul>
-  </section>
+  <!-- Main container -->
+  <main id="main-content">
+    <p>Select an environment to view details.</p>
+  </main>
 
   <script>
-    document.addEventListener('DOMContentLoaded', async function () {
-      // Example service data with URLs
-      const serviceData = {
-        prod: [
-          { name: "sub Service", url: "https://enable-trial01.enable-technologies.app/api/subscription/diagnostics/ping", status: "Fetching..." },
-          { name: "Party", url: "https://enable-trial01.enable-technologies.app/api/party/diagnostics/ping", status: "Fetching..." },
-          { name: "origination", url: "https://enable-trial01.enable-technologies.app/api/origination/diagnostics/ping", status: "Fetching..." }
-        ],
-        preprod: [
-          { name: "sub Service", url: "https://enable-dev01.enable-technologies.app/api/subscription/diagnostics/ping", status: "Fetching..." },
-          { name: "Party", url: "https://enable-dev01.enable-technologies.app/api/party/diagnostics/ping", status: "Fetching..." },
-          { name: "origination", url: "https://enable-dev01.enable-technologies.app/api/origination/diagnostics/ping", status: "Fetching..." }
-        ]
+    document.addEventListener('DOMContentLoaded', function () {
+      // Example data for services, maintenance windows, and incidents
+      const environmentData = {
+        prod: {
+          services: [
+            { name: "sub Service", url: "https://enable-trial01.enable-technologies.app/api/subscription/diagnostics/ping", status: "Fetching..." },
+            { name: "party", url: "https://enable-trial01.enable-technologies.app/api/party/diagnostics/ping", status: "Fetching..." },
+            { name: "content", url: "https://enable-trial01.enable-technologies.app/api/content/diagnostics/ping", status: "Fetching..." }
+          ],
+          maintenance: [
+            { window: "2024-11-30 01:00 AM - 03:00 AM UTC", description: "Database upgrade." }
+          ],
+          incidents: [
+            { id: 1, date: "2024-11-27", description: "Intermittent login failures." }
+          ]
+        },
+        preprod: {
+          services: [
+            { name: "sub Service", url: "https://enable-trial01.enable-technologies.app/api/subscription/diagnostics/ping", status: "Fetching..." },
+            { name: "party", url: "https://enable-trial01.enable-technologies.app/api/party/diagnostics/ping", status: "Fetching..." },
+            { name: "content", url: "https://enable-trial01.enable-technologies.app/api/content/diagnostics/ping", status: "Fetching..." }
+          ],
+          maintenance: [
+            { window: "2024-12-01 02:00 AM - 04:00 AM UTC", description: "API server patching." }
+          ],
+          incidents: [
+            { id: 2, date: "2024-11-26", description: "Payment gateway timeout." }
+          ]
+        }
       };
 
       // Fetch live status from URLs
       async function fetchServiceStatus(url) {
         try {
           const response = await fetch(url, { method: 'GET' });
-          if (response.ok) {
-            return "Operational"; // Update based on API response if necessary
-          } else {
-            return "Degraded";
-          }
+          return response.ok ? "Operational" : "Degraded";
         } catch (error) {
           return "Outage";
         }
       }
 
-      // Populate services dynamically
-      async function populateServices(env, data) {
-        const section = document.querySelector(`#${env} .service-list`);
-        for (const service of data) {
+      // Render environment details
+      async function renderEnvironment(env) {
+        const data = environmentData[env];
+        const mainContent = document.getElementById('main-content');
+        mainContent.innerHTML = `<h2>${env.toUpperCase()} Environment</h2>`;
+
+        // Services
+        const servicesSection = document.createElement('section');
+        servicesSection.innerHTML = `<h3>Services</h3>`;
+        const servicesList = document.createElement('ul');
+        for (const service of data.services) {
           const li = document.createElement('li');
           li.innerHTML = `<strong>${service.name}:</strong> ${service.status}`;
-          section.appendChild(li);
+          servicesList.appendChild(li);
 
           // Update status dynamically
           const status = await fetchServiceStatus(service.url);
           li.innerHTML = `<strong>${service.name}:</strong> ${status}`;
         }
+        servicesSection.appendChild(servicesList);
+        mainContent.appendChild(servicesSection);
+
+        // Maintenance Windows
+        const maintenanceSection = document.createElement('section');
+        maintenanceSection.innerHTML = `<h3>Maintenance Windows</h3>`;
+        const maintenanceList = document.createElement('ul');
+        data.maintenance.forEach((maint) => {
+          const li = document.createElement('li');
+          li.textContent = `${maint.window}: ${maint.description}`;
+          maintenanceList.appendChild(li);
+        });
+        maintenanceSection.appendChild(maintenanceList);
+        mainContent.appendChild(maintenanceSection);
+
+        // Active Incidents
+        const incidentsSection = document.createElement('section');
+        incidentsSection.innerHTML = `<h3>Active Incidents</h3>`;
+        const incidentsList = document.createElement('ul');
+        data.incidents.forEach((incident) => {
+          const li = document.createElement('li');
+          li.textContent = `${incident.date}: ${incident.description}`;
+          incidentsList.appendChild(li);
+        });
+        incidentsSection.appendChild(incidentsList);
+        mainContent.appendChild(incidentsSection);
       }
 
-      // Populate Prod Services
-      await populateServices("prod", serviceData.prod);
-
-      // Populate Preprod Services
-      await populateServices("preprod", serviceData.preprod);
+      // Event Listeners for navigation
+      document.getElementById('link-prod').addEventListener('click', () => renderEnvironment('prod'));
+      document.getElementById('link-preprod').addEventListener('click', () => renderEnvironment('preprod'));
     });
   </script>
 </body>
