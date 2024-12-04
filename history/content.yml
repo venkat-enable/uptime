@@ -1,7 +1,7 @@
 url: https://enable-qa01.enable-technologies.app/admin/api/content/diagnostics/ping
-status: down
-code: 0
-responseTime: 0
-lastUpdated: 2024-12-04T12:58:07.272Z
+status: up
+code: 200
+responseTime: 201
+lastUpdated: 2024-12-04T13:44:28.116Z
 startTime: 2024-11-28T10:05:08.078Z
 generator: Upptime <https://github.com/upptime/upptime>
