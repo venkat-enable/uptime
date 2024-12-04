@@ -4,9 +4,9 @@
     "url": "https://cd.enable-technologies.io",
     "icon": "https://icons.duckduckgo.com/ip3/cd.enable-technologies.io.ico",
     "slug": "cd",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.99%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
@@ -15,7 +15,9 @@
     "timeWeek": 236,
     "timeMonth": 245,
     "timeYear": 245,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2024-12-04": 0
+    }
   },
   {
     "name": "ci",
@@ -34,7 +36,7 @@
     "timeMonth": 276,
     "timeYear": 276,
     "dailyMinutesDown": {
-      "2024-12-04": 47,
+      "2024-12-04": 778,
       "2024-12-03": 1440,
       "2024-12-02": 1440,
       "2024-12-01": 1440,
@@ -62,7 +64,7 @@
     "timeMonth": 253,
     "timeYear": 253,
     "dailyMinutesDown": {
-      "2024-12-04": 47,
+      "2024-12-04": 778,
       "2024-12-03": 1440,
       "2024-12-02": 1440,
       "2024-12-01": 1440,
@@ -96,9 +98,9 @@
     "url": "https://enable-dev01.enable-technologies.app/admin/api/party/diagnostics/ping",
     "icon": "https://icons.duckduckgo.com/ip3/enable-dev01.enable-technologies.app.ico",
     "slug": "party",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.99%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
@@ -107,14 +109,16 @@
     "timeWeek": 212,
     "timeMonth": 212,
     "timeYear": 212,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2024-12-04": 0
+    }
   },
   {
     "name": "content",
     "url": "https://enable-qa01.enable-technologies.app/admin/api/content/diagnostics/ping",
     "icon": "https://icons.duckduckgo.com/ip3/enable-qa01.enable-technologies.app.ico",
     "slug": "content",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
     "uptimeDay": "100.00%",
     "uptimeWeek": "100.00%",
@@ -125,6 +129,8 @@
     "timeWeek": 237,
     "timeMonth": 237,
     "timeYear": 237,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2024-12-04": 0
+    }
   }
 ]
