@@ -36,7 +36,7 @@
     "timeMonth": 276,
     "timeYear": 276,
     "dailyMinutesDown": {
-      "2024-12-04": 809,
+      "2024-12-04": 825,
       "2024-12-03": 1440,
       "2024-12-02": 1440,
       "2024-12-01": 1440,
@@ -64,7 +64,7 @@
     "timeMonth": 253,
     "timeYear": 253,
     "dailyMinutesDown": {
-      "2024-12-04": 809,
+      "2024-12-04": 825,
       "2024-12-03": 1440,
       "2024-12-02": 1440,
       "2024-12-01": 1440,
@@ -98,19 +98,19 @@
     "url": "https://enable-dev01.enable-technologies.app/admin/api/party/diagnostics/ping",
     "icon": "https://icons.duckduckgo.com/ip3/enable-dev01.enable-technologies.app.ico",
     "slug": "party",
-    "status": "down",
-    "uptime": "99.66%",
-    "uptimeDay": "97.88%",
-    "uptimeWeek": "99.66%",
-    "uptimeMonth": "99.66%",
-    "uptimeYear": "99.66%",
-    "time": 212,
-    "timeDay": 131,
-    "timeWeek": 212,
-    "timeMonth": 212,
-    "timeYear": 212,
+    "status": "up",
+    "uptime": "99.48%",
+    "uptimeDay": "96.78%",
+    "uptimeWeek": "99.48%",
+    "uptimeMonth": "99.48%",
+    "uptimeYear": "99.48%",
+    "time": 203,
+    "timeDay": 135,
+    "timeWeek": 203,
+    "timeMonth": 203,
+    "timeYear": 203,
     "dailyMinutesDown": {
-      "2024-12-04": 30
+      "2024-12-04": 46
     }
   },
   {
@@ -118,19 +118,19 @@
     "url": "https://enable-qa01.enable-technologies.app/admin/api/content/diagnostics/ping",
     "icon": "https://icons.duckduckgo.com/ip3/enable-qa01.enable-technologies.app.ico",
     "slug": "content",
-    "status": "down",
-    "uptime": "99.66%",
-    "uptimeDay": "97.88%",
-    "uptimeWeek": "99.66%",
-    "uptimeMonth": "99.66%",
-    "uptimeYear": "99.66%",
-    "time": 237,
-    "timeDay": 236,
-    "timeWeek": 237,
-    "timeMonth": 237,
-    "timeYear": 237,
+    "status": "up",
+    "uptime": "99.48%",
+    "uptimeDay": "96.78%",
+    "uptimeWeek": "99.48%",
+    "uptimeMonth": "99.48%",
+    "uptimeYear": "99.48%",
+    "time": 232,
+    "timeDay": 219,
+    "timeWeek": 232,
+    "timeMonth": 232,
+    "timeYear": 232,
     "dailyMinutesDown": {
-      "2024-12-04": 30
+      "2024-12-04": 46
     }
   }
 ]
