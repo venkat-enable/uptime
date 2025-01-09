@@ -1,7 +1,7 @@
 url: https://cics.enable-technologies.io
-status: up
-code: 200
-responseTime: 369
-lastUpdated: 2025-01-09T10:33:00.630Z
+status: down
+code: 503
+responseTime: 118
+lastUpdated: 2025-01-09T10:43:37.639Z
 startTime: 2024-11-28T10:05:06.509Z
 generator: Upptime <https://github.com/upptime/upptime>
