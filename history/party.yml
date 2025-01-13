@@ -1,7 +1,7 @@
 url: https://enable-dev01.enable-technologies.app/admin/api/party/diagnostics/ping
-status: down
-code: 503
-responseTime: 132
-lastUpdated: 2025-01-13T17:38:45.533Z
+status: up
+code: 200
+responseTime: 214
+lastUpdated: 2025-01-13T17:46:33.681Z
 startTime: 2024-11-28T10:05:07.582Z
 generator: Upptime <https://github.com/upptime/upptime>
